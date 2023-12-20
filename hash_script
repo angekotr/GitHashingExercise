@@ -1,0 +1,12 @@
+#!/bin/bash
+
+read  -p "Enter a 4-digit integer: " input
+
+#Checks if the input is exactly 4 digits and runs again until it is 
+while ! [[ $input =~ ^[0-9]{4}$ ]]; do
+echo "Invalid input! Please enter a valid 4-digit integer: "
+read  -p "Enter a 4-digit integer: " input
+done
+
+#Hash using algorithm SHA-256
+echo -n "$input" | sha256sum > hash_output.txt
